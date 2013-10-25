@@ -1,7 +1,7 @@
 lethe
 =====
 
-Secure one-time messaging service for the privacy conscious user.  Designed to be deployed over anonymity networks such as Tor and I2P.
+Secure self-destructing messaging service for the privacy conscious user.  Designed to be deployed over anonymity networks such as Tor and I2P.
 
 Lethe provides the following:
 + Forced PGP encryption for all messages
@@ -27,7 +27,11 @@ vi config.py // Modify appropriate values
 python lethe.py > /dev/null
 ```
 
-That's it.
+That's it, lethe is now up and running.  To deploy lethe, point a Tor or I2P hidden service at localhost:your configured port.  It's that easy.
+If you wish to deploy lethe on the clearweb, set LISTEN_OUTSIDE_LOCALHOST to True in config.py, but note that this is not recommended.
+
+More advanced deployments, such as subdomain or subdirectory deployments, can be accomplished by deploying the Lethe Flask app through one of several popular webservers.
+See the Flask documentation under Deployments for more details.
 
 Limitations
 =====
