@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1> Post a New Self-Destructing Message <small> Note: Message <b>must</b> already be PGP encrypted. </small> </h1>
+    <form name="myform" action="{{ url_for('post') }}" method="POST">
+        <textarea name="secret" style="width: 99%; height: 300px;"></textarea>
+        <button class="btn btn-large btn-primary" type="submit">Generate Secret Message URL</button>
+    </form>
+    <br>
+    <h1> Lethe API </h1>
+    <p class="lead">Building a hidden service or other privacy-centric app?  Easily generate Lethe URLs and read Lethe messages via our built-in API!  Eliminate the need to store messages and the risks associated with the compromise of the database or certain keys. </p>
+    <h3> Posting a Message </h3>
+    To post a Lethe message, simply send a POST request to this page with the key secret holding any complete PGP message, as well as the key json holding any non-empty string.  Lethe will respond with 404 for missing secret, 403 for non-PGP messages, or 500 if the server is at message storage capacity.  In the event of a 200 OK response a JSON object with the field secret_key holding the message's unique UUID is returned.
+    <h3>Reading a Message</h3>
+    To read a Lethe message, simply send a GET request to THIS_PAGE/get_json/SECRET_KEY, where SECRET_KEY is the unique UUID above.  A JSON object will be return with the field secret holding the original secret message.
+    <h4>... Easy, right?</h4>
+    <br>
+    <hr>
+    <h1> Abuse and Legal </h1>
+    The owners and operators of this service cannot read or access any of the messages stored on this service.  Furthermore, it is impossible to identify the senders of these messages.  transbit.org and the transbit development team do not host any public instances of Lethe and cannot be responsible for any misuse of this software.  Any bugs, feature requests, complaints, exploits, or other issues or contact with the development team are handled exclusively through the Github linked in the header and will be responded to as promptly as possible.  transbit.org provides this software and its support free of charge and reserves the right to deny support to any organization or individual suspected of being in violation of local, state, or federal laws or those laws of  
+    <hr><br>
+{% endblock %}

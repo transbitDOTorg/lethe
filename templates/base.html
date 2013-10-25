@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> {{ action }} </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap.min.css') }}">
+    </head>
+    <body>
+        <div id="main" style="width:80%; margin-left:auto; margin-right: auto;">
+            <div class="hero-unit" style="padding: 30px;">
+                <a href="{{ url_for('post') }}"><img src="{{ url_for('static', filename = 'medusa.png') }}" class="span2" style="padding-right: 50px;"/></a>
+                <h1 class="inline">Lethe :: {{ action }}</h1>
+                <p class="lead"><a href="http://github.com/transbitDOTorg/lethe">Lethe</a> is an encrypted open-source service for sending self destructing encrypted private messages.  After posting, a Lethe message is accessed via private URL and is able to be read only once.  For your protection Lethe only accepts messages encrypted via <a href="http://www.pitt.edu/~poole/accessiblePGP703.htm">PGP</a>.  Lethe minimizes the impact of the compromise of either party's private key by storing nothing to disk and deleting all old messages.</p>
+            </div>
+            {% if error %}
+                <div class="text-error" style="border: 1px dotted; padding: 10px;"><h1>{{ error }}</h1><br></div>
+            {% endif %}
+            {% block content %} {% endblock %}
+        </div>
+        <div class="text-center"><b>Lovingly crafted by <a href="http://github.com/transbitDOTorg">Transbit</a>. </b>Icon by Amanda Downs, from The Noun Project</b></div>
+        <br>
+    </body>
+</html>

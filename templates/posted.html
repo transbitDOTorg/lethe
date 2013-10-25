@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="page-header text-center">
+        <h1>Your self destructing message has been posted!</h1><hr>
+        <h1> URL : <small>{{ request.url_root }}get/{{ secret_key }} </small></h1><br>
+        <a href="{{ url_for('post') }}" class="btn btn-large btn-success"> Post another! </a>
+    </div>
+    <h1> What now? </h1>
+    <p class="lead">Simply send the link above to the intended recipient.  Save a copy of the link, as visiting it will delete the message.  Due to the nature of the software, if this site goes down before you or the recipient can read the message, the message may be forgotten forever and may need to be resent.  </p>
+    <h4>For your security, your message will expire in {{ EXPIRY }} days.</h4>
+    <br>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Your self destructing message:<h1>
+<h3 class="text-warning"> <i> Warning: This message will not be accessible after leaving this page!  By anyone!</i> </h3>
+<pre>{{ secret }}</pre>
+<div style="padding: 20px;"><a href="{{ url_for('post') }}" class="btn btn-large btn-success" style="width:50%; margin-left: 25%;"> Post a reply! </a></div>
+{% endblock %}
