@@ -62,7 +62,7 @@ def clean_garbage():
         # @todo - More intelligence than a linear search
         sweep_time = time.time()
         for secret_key, message in lethe.lethe_messages.iteritems():
-            if (time.time() - message.timestap) > (86400 * FORGET_AFTER_DAYS):
+            if (time.time() - message.timestamp) > (86400 * FORGET_AFTER_DAYS):
                 del lethe.lethe_messages[secret_key]
         time.sleep(7200)
 
